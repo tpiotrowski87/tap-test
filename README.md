@@ -1,1 +1,1 @@
-# tap-test
+Sample org structure for application catalog
