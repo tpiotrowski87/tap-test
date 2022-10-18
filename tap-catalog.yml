@@ -1,0 +1,272 @@
+apiVersion: backstage.io/v1alpha1
+kind: Domain
+metadata:
+  name: company-domain
+  description: Demo Domain for the Company
+  annotations:
+    'backstage.io/techdocs-ref': dir:.
+spec:
+  owner: demo-team
+  
+---
+
+apiVersion: backstage.io/v1alpha1
+kind: Component
+metadata:
+  name: fraud-app-ms-1
+  description: Fraud Application's Microservice-1
+  tags:
+    - microservice
+    - tas
+  annotations:
+    'backstage.io/kubernetes-label-selector': 'app.kubernetes.io/part-of=fraud-app-ms-1'
+    'backstage.io/techdocs-ref': dir:.
+spec:
+  type: service
+  providesApis:
+   - fraud-api-1
+  lifecycle: alpha
+  owner: demo-team
+  system: fraud-app
+
+---
+
+apiVersion: backstage.io/v1alpha1
+kind: Component
+metadata:
+  name: fraud-app-ms-2
+  description: Fraud Application's Microservice-2
+  tags:
+    - microservice
+    - tas
+  annotations:
+    'backstage.io/kubernetes-label-selector': 'app.kubernetes.io/part-of=fraud-app-ms-2'
+    'backstage.io/techdocs-ref': dir:.
+spec:
+  type: service
+  providesApis:
+   - fraud-api-2
+  lifecycle: alpha
+  owner: demo-team
+  system: fraud-app
+---
+
+apiVersion: backstage.io/v1alpha1
+kind: Component
+metadata:
+  name: fraud-app-ms-3
+  description: Fraud Application's Microservice-3
+  tags:
+    - microservice
+    - tap
+  annotations:
+    'backstage.io/kubernetes-label-selector': 'app.kubernetes.io/part-of=fraud-app-ms-3'
+    'backstage.io/techdocs-ref': dir:.
+spec:
+  type: service
+  providesApis:
+   - fraud-api-3
+  lifecycle: alpha
+  owner: demo-team
+  system: fraud-app
+---
+
+apiVersion: backstage.io/v1alpha1
+kind: Component
+metadata:
+  name: fraud-app-ms-4
+  description: Fraud Application's Microservice-4
+  tags:
+    - microservice
+    - tap
+  annotations:
+    'backstage.io/kubernetes-label-selector': 'app.kubernetes.io/part-of=fraud-app-ms-4'
+    'backstage.io/techdocs-ref': dir:.
+spec:
+  type: service
+  providesApis:
+   - fraud-api-4
+  lifecycle: alpha
+  owner: demo-team
+  system: fraud-app
+---
+
+apiVersion: backstage.io/v1alpha1
+kind: System
+metadata:
+  name: fraud-app
+  description: Fraud Application hosted in TAS and TAP
+  annotations:
+    'backstage.io/techdocs-ref': dir:.
+spec:
+  owner: demo-team
+  domain: company-domain
+
+---
+
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: fraud-api-1
+  description: The API for Fraud Microservice-1
+  links:
+    - url: https://api.agify.io
+      title: API Definition
+      icon: docs
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: demo-team
+  system: fraud-app
+  definition: |
+    openapi: 3.0.1
+    info:
+      title: Demo API
+      description: defaultDescription
+      version: '0.1'
+    servers:
+      - url: https://api.agify.io
+    paths:
+      /:
+        get:
+          description: Auto generated using Swagger Inspector
+          parameters:
+            - name: name
+              in: query
+              schema:
+                type: string
+              example: type_any_name
+          responses:
+            '200':
+              description: Auto generated using Swagger Inspector
+              content:
+                application/json; charset=utf-8:
+                  schema:
+                    type: string
+                  examples: {} 
+---
+
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: fraud-api-2
+  description: The API for Fraud Microservice-2
+  links:
+    - url: https://api.agify.io
+      title: API Definition
+      icon: docs
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: demo-team
+  system: fraud-app
+  definition: |
+    openapi: 3.0.1
+    info:
+      title: Demo API
+      description: defaultDescription
+      version: '0.1'
+    servers:
+      - url: https://api.agify.io
+    paths:
+      /:
+        get:
+          description: Auto generated using Swagger Inspector
+          parameters:
+            - name: name
+              in: query
+              schema:
+                type: string
+              example: type_any_name
+          responses:
+            '200':
+              description: Auto generated using Swagger Inspector
+              content:
+                application/json; charset=utf-8:
+                  schema:
+                    type: string
+                  examples: {} 
+---
+
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: fraud-api-3
+  description: The API for Fraud Microservice-3
+  links:
+    - url: https://api.agify.io
+      title: API Definition
+      icon: docs
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: demo-team
+  system: fraud-app
+  definition: |
+    openapi: 3.0.1
+    info:
+      title: Demo API
+      description: defaultDescription
+      version: '0.1'
+    servers:
+      - url: https://api.agify.io
+    paths:
+      /:
+        get:
+          description: Auto generated using Swagger Inspector
+          parameters:
+            - name: name
+              in: query
+              schema:
+                type: string
+              example: type_any_name
+          responses:
+            '200':
+              description: Auto generated using Swagger Inspector
+              content:
+                application/json; charset=utf-8:
+                  schema:
+                    type: string
+                  examples: {} 
+---
+
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: fraud-api-4
+  description: The API for Fraud Microservice-4
+  links:
+    - url: https://api.agify.io
+      title: API Definition
+      icon: docs
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: demo-team
+  system: fraud-app
+  definition: |
+    openapi: 3.0.1
+    info:
+      title: Demo API
+      description: defaultDescription
+      version: '0.1'
+    servers:
+      - url: https://api.agify.io
+    paths:
+      /:
+        get:
+          description: Auto generated using Swagger Inspector
+          parameters:
+            - name: name
+              in: query
+              schema:
+                type: string
+              example: type_any_name
+          responses:
+            '200':
+              description: Auto generated using Swagger Inspector
+              content:
+                application/json; charset=utf-8:
+                  schema:
+                    type: string
+                  examples: {} 
